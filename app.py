@@ -4,14 +4,14 @@ import requests
 from PIL import Image
 from io import BytesIO
 import numpy as np
-#import tensorflow as tf
+import tensorflow as tf
 from scipy.spatial.distance import cosine
 import pickle
 
 app = FastAPI()
 
 # Load the pre-trained model
-#model = tf.keras.applications.MobileNetV2(weights='imagenet', include_top=False, pooling='avg')
+model = tf.keras.applications.MobileNetV2(weights='imagenet', include_top=False, pooling='avg')
 
 # Load precomputed features
 with open('product_features.pkl', 'rb') as f:

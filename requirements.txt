@@ -4,4 +4,6 @@ scikit-learn
 pydantic
 numpy
 requests
+tensorflow
+pillow
 pandas
