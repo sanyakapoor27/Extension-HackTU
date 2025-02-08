@@ -37,7 +37,7 @@ def find_similar_products(query_features):
 class ImageRequest(BaseModel):
     img_url: str
 
-@app.post("/recommend")
+@app.post("/recommend_image")
 async def recommend_image(request: ImageRequest):
     try:
         response = requests.get(request.img_url)
