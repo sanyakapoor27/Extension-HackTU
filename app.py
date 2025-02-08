@@ -5,6 +5,8 @@ from PIL import Image
 from io import BytesIO
 import numpy as np
 import tensorflow as tf
+from fastapi.middleware.cors import CORSMiddleware
+
 from scipy.spatial.distance import cosine
 import pickle
 
@@ -36,6 +38,14 @@ def find_similar_products(query_features):
 
 class ImageRequest(BaseModel):
     img_url: str
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (change to specific domains if needed)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/recommend_image")
 async def recommend_image(request: ImageRequest):
