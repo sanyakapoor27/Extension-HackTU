@@ -34,7 +34,7 @@ def find_similar_products(query_features):
         for product_id, data in product_database.items()
     ]
     sorted_products = sorted(similarities, key=lambda x: x[1], reverse=True)[:5]
-    return [{"product_id": product_id, "img_link": product_database[product_id]["img_link"]} for product_id, _ in sorted_products]
+    return [{"product_name": product_database[product_id]["product_name"], "product_id": product_id, "img_link": product_database[product_id]["img_link"],"price": product_database[product_id]["price"]} for product_id, _ in sorted_products]
 
 class ImageRequest(BaseModel):
     img_url: str
